@@ -5,14 +5,14 @@ pub struct Mobile;
 
 #[derive(Component)]
 pub struct StatBlock{
-    pub hp: f32,
-    pub armor: i32,
-    pub strength: i32,
-    pub dexterity: i32,
-    pub constitution: i32,
-    pub intelligence: i32,
-    pub wisdom: i32,
-    pub charisma: i32,
+    hp: f32,
+    armor: i32,
+    strength: i32,
+    dexterity: i32,
+    constitution: i32,
+    intelligence: i32,
+    wisdom: i32,
+    charisma: i32,
 }
 
 #[derive(Component)]
