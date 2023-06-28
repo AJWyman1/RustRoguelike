@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy::app::AppExit;
 use bevy::window::PrimaryWindow;
 
+
 pub fn spawn_camera(
     mut commands: Commands,
     window_query: Query<&Window, With<PrimaryWindow>>,
