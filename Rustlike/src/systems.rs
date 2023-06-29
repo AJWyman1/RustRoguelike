@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 use bevy::app::AppExit;
 use bevy::window::PrimaryWindow;
+use bevy::window::CursorGrabMode;
 
 
 pub fn spawn_camera(

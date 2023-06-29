@@ -10,7 +10,10 @@ use events::*;
 use components::*;
 use systems::*;
 
-use bevy::prelude::*;
+use bevy::{ 
+    prelude::*,
+    window::{CursorGrabMode, PresentMode},
+};
 use bevy::window::PrimaryWindow;
 
 fn main() {
@@ -19,8 +22,19 @@ fn main() {
         .add_plugin(PlayerPlugin)
         .add_startup_system(spawn_camera)
         .add_startup_system(spawn_crosshair)
+        .add_startup_system(toggle_cursor)
         .add_system(move_crosshair)
         .run();
+}
+
+fn toggle_cursor(mut windows: Query<&mut Window>) {
+
+    let mut window = windows.single_mut();
+    window.cursor.visible = false;
+    let x = window.width() / 2.0 + 90.0;
+    let y = window.height() / 2.0 ;
+    window.set_cursor_position(Some(Vec2 {x, y}));
+
 }
 
 fn spawn_crosshair(
@@ -28,6 +42,7 @@ fn spawn_crosshair(
     asset_server: Res<AssetServer>,
     window_query: Query<&Window, With<PrimaryWindow>>,
 ){
+
     let window = window_query.get_single().unwrap();
     commands.spawn((
         SpriteBundle{

@@ -30,7 +30,7 @@ pub fn move_player(
     keyboard_input: Res<Input<KeyCode>>,
 ){
     let mut player_transform = player_query.get_single_mut().unwrap(); //Might have to change if multi-player is added
-    let movespeed = 2.5;
+    let movespeed = 5.0;
 
     if keyboard_input.pressed(KeyCode::W){player_transform.translation.y += movespeed;}
     if keyboard_input.pressed(KeyCode::A){player_transform.translation.x -= movespeed;}
