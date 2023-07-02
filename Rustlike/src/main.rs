@@ -3,6 +3,7 @@ mod components;
 mod events;
 mod creatures;
 mod player;
+mod items;
 
 use crate::player::PlayerPlugin;
 
@@ -28,13 +29,11 @@ fn main() {
 }
 
 fn toggle_cursor(mut windows: Query<&mut Window>) {
-
     let mut window = windows.single_mut();
     window.cursor.visible = false;
-    let x = window.width() / 2.0 + 90.0;
-    let y = window.height() / 2.0 ;
+    let x = window.width() / 2.0 + 0.0;
+    let y = window.height() / 2.0 + 90.0;
     window.set_cursor_position(Some(Vec2 {x, y}));
-
 }
 
 fn spawn_crosshair(
@@ -46,7 +45,7 @@ fn spawn_crosshair(
     let window = window_query.get_single().unwrap();
     commands.spawn((
         SpriteBundle{
-            transform: Transform::from_xyz(window.width() / 2.0 + 90.0, window.height() / 2.0, 0.0).with_scale(Vec3{x: 0.05, y: 0.05, z: 0.05}),
+            transform: Transform::from_xyz(window.width() / 2.0 + 0.0, window.height() / 2.0 + 90.0, 0.0).with_scale(Vec3{x: 0.05, y: 0.05, z: 0.05}),
             texture: asset_server.load("textures/crosshair.png"),
             ..default()
         },

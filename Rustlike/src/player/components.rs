@@ -1,8 +1,11 @@
 use bevy::prelude::*; 
 
+use crate::items::components::Weapon;
 
 #[derive(Component)]
-pub struct Player;
+pub struct Player{
+    pub equipped_weapon: Option<Weapon>,
+}
 
 #[derive(Component)]
 pub struct PlayerData{

@@ -18,6 +18,8 @@ pub struct StatBlock{
 #[derive(Component)]
 pub struct Enemy;
 
-
 #[derive(Component)]
 pub struct Crosshair;
+
+#[derive(Component)]
+pub struct Inventory;
